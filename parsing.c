@@ -6,13 +6,11 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:59:47 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/22 11:27:51 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/22 15:56:04 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include "list.h"
-#include "get_next_line_SL/get_next_line.h"
+#include "so_long.h"
 
 static char	*strdup_no_n(char **str)
 {
@@ -36,23 +34,25 @@ static char	*strdup_no_n(char **str)
 	return (new_str);
 }
 
-t_list	*parsing(t_list **last)
+t_list	*parsing(t_list **last, int fd)
 {
-	int		fd;
 	char	*line;
 	char	*str;
 	t_list	*parsed;
 
-	fd = open("map", O_RDONLY);
-	str = get_next_line(fd);
-	
-	while (1337)
+	line = get_next_line(fd);
+	if (line == NULL)
+		return (NULL);
+	str = strdup_no_n(&line);
+	*last = add_at_end(last, &str);
+	parsed = *last;
+	while (69/*fkhater smail*/)
 	{
 		line = get_next_line(fd);
-		str = strdup_no_n(&line);
-		if (str == NULL)
+		if (line == NULL)
 			break;
-		*last = add_at_end(&parsed, &str);
+		str = strdup_no_n(&line);
+		*last = add_at_end(last, &str);
 	}
 	return (parsed);
 }

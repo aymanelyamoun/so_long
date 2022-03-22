@@ -1,5 +1,16 @@
-#include "list.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_manipulation.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/22 13:13:20 by ael-yamo          #+#    #+#             */
+/*   Updated: 2022/03/22 16:26:11 by ael-yamo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "so_long.h"
 
 static t_list *creat_node(char **str)
 {
@@ -25,6 +36,7 @@ void	free_list(t_list **list)
 		free(to_free->str);
 		free(to_free);
 	}
+	*list = NULL;
 }
 
 t_list *add_at_end(t_list **list, char **str)
@@ -49,4 +61,5 @@ t_list *add_at_end(t_list **list, char **str)
 		write(2, "aji ... ash tadir ta tma / (couldn't allocat memory)\n", 54);
 		exit(1);
 	}
+	return (node);
 }

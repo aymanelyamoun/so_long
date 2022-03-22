@@ -6,11 +6,13 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:59:52 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/22 11:29:34 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/22 13:28:26 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SO_LONG_H
 #include "list.h"
+#include "get_next_line_SL/get_next_line.h"
 
 /* ********* ********* ********** */
 /* ********* CHECK MAP ********** */
@@ -28,11 +30,14 @@ int	check_if_rctnglr(t_list *list);
 
 int check_hrsntl(char *first, char *last);
 int	check_vrtcl(t_list *list);
-int	check();
+int	check(int fd);
 
 /* ********* ************* ********** */
 /* ********* SO LONG UTILS ********** */
 /* ********* ************* ********** */
 
-t_list	*parsing(t_list **last);
+size_t	str_len(const char *s);
+t_list	*parsing(t_list **last, int fd);
 void	exit_game(t_list **list);
+
+#endif

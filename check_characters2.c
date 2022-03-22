@@ -6,15 +6,14 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:16:02 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/22 11:25:18 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/22 13:29:54 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
+#include "so_long.h"
 
 int	check_outsiders(t_list *list)
 {
-	int		has_outsdr;
 	char	*str;
 	
 	while (list != NULL)

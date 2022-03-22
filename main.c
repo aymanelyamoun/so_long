@@ -6,15 +6,17 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:59:58 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/22 10:59:59 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/22 13:35:41 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
+#include "so_long.h"
+#include <stdio.h>
 
 int	main()
 {
 	int fd;
 
-	fd = open
+	fd = open("./map", O_RDONLY);
+	printf("%d", check(fd));
 }

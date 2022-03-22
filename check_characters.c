@@ -6,16 +6,17 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:13:55 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/22 11:20:58 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/22 16:10:30 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
+#include "so_long.h"
 
 static int haschar(char *str, char c)
 {
 	int	has_c;
 
+	has_c = 0;
 	while (*str)
 	{
 		if (*str == c)
@@ -29,6 +30,8 @@ int check_P(t_list *list)
 {
 	int	player;
 	int	has_c;
+
+	player = 0;
 	while (list != NULL)
 	{
 		has_c = haschar(list->str, 'P');
@@ -56,7 +59,7 @@ int check_C(t_list *list)
 	while (list != NULL)
 	{
 		has_c = haschar(list->str, 'C');
-		if (has_c >= 1)
+		if (has_c)
 			return (1);
 		list = list->next;
 	}

@@ -1,5 +1,7 @@
 {
 	"files.associations": {
-		"list.h": "c"
+		"list.h": "c",
+		"get_next_line.h": "c",
+		"so_long.h": "c"
 	}
 }

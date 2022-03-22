@@ -6,22 +6,22 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:59:35 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/22 11:25:39 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/22 16:11:05 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
+#include "so_long.h"
 
 static int check_line(char *str)
 {
 	while (*str)
 	{
-			if (*str != '1')
-			{
-				write(2, "Error\n", 6);
-				return (0);
-			}
-			str++;
+		if (*str != '1')
+		{
+			write(2, "Error\n", 6);
+			return (0);
+		}
+		str++;
 	}
 	return (1);
 }
@@ -41,7 +41,7 @@ static int	check_r_l(char *str)
 	int	len;
 	
 	len = ft_strlen(str);
-	if ((str[0] != '1') || (str[len] != '1'))
+	if ((str[0] != '1') || (str[len-1] != '1'))
 	{
 		write(2, "Error\nSome thing wrong with the vertical walles\n", 48);
 		return (0);

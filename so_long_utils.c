@@ -6,14 +6,15 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:30:55 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/22 11:31:06 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/22 16:19:33 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
+#include "so_long.h"
 
 void	exit_game(t_list **list)
 {
 	free_list(list);
+	*list = NULL;
 	exit(1);
 }
