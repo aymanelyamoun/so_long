@@ -1,7 +1,7 @@
 #include "list.h"
 
 
-t_list *creat_node(char **str)
+static t_list *creat_node(char **str)
 {
 	t_list *node;
 
@@ -14,7 +14,7 @@ t_list *creat_node(char **str)
 	return (node);
 }
 
-void	free_list(t_list **list)
+static void	free_list(t_list **list)
 {
 	t_list *to_free;
 
@@ -22,12 +22,12 @@ void	free_list(t_list **list)
 	{
 		to_free = *list;
 		(*list) = (*list)->next;
+		free(to_free->str);
 		free(to_free);
 	}
-	
 }
 
-void add_at_end(t_list **list, char **str)
+t_list *add_at_end(t_list **list, char **str)
 {
 	t_list	*node;
 
@@ -35,7 +35,7 @@ void add_at_end(t_list **list, char **str)
 	if (node)
 	{
 		if (*list == NULL)
-		*list = node;
+			*list = node;
 		else
 		{
 			(*list)->next = node;
