@@ -9,3 +9,4 @@ struct s_list
 typedef struct s_list t_list;
 
 t_list *add_at_end(t_list **list, char **str);
+void	free_list(t_list **list);

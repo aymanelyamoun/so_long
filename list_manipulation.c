@@ -14,7 +14,7 @@ static t_list *creat_node(char **str)
 	return (node);
 }
 
-static void	free_list(t_list **list)
+void	free_list(t_list **list)
 {
 	t_list *to_free;
 
