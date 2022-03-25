@@ -6,7 +6,7 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:59:35 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/22 16:11:05 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/22 17:58:59 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ static int check_line(char *str)
 	while (*str)
 	{
 		if (*str != '1')
-		{
-			write(2, "Error\n", 6);
 			return (0);
-		}
 		str++;
 	}
 	return (1);

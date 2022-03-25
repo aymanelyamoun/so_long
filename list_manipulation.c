@@ -6,7 +6,7 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 13:13:20 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/22 16:26:11 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/22 17:54:15 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static t_list *creat_node(char **str)
 {
 	t_list *node;
 
-	node = malloc(sizeof(t_list *));
+	node = malloc(sizeof(t_list));
 	if (node == NULL)
 		return (NULL);
 	node->next = NULL;

@@ -6,7 +6,7 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:59:47 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/22 15:56:04 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/22 18:19:27 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,7 @@ t_list	*parsing(t_list **last, int fd)
 	char	*str;
 	t_list	*parsed;
 
-	line = get_next_line(fd);
-	if (line == NULL)
-		return (NULL);
-	str = strdup_no_n(&line);
-	*last = add_at_end(last, &str);
-	parsed = *last;
+	parsed = NULL;
 	while (69/*fkhater smail*/)
 	{
 		line = get_next_line(fd);
@@ -53,6 +48,8 @@ t_list	*parsing(t_list **last, int fd)
 			break;
 		str = strdup_no_n(&line);
 		*last = add_at_end(last, &str);
+		if (parsed == NULL)
+			parsed = *last;
 	}
 	return (parsed);
 }

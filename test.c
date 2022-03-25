@@ -4,27 +4,19 @@ typedef struct img
 {
 	void	*img;
 	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}		img_data;
-
-void	my_mlx_pixel_put(img_data *img, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-}
+	int		img_width;
+	int		img_height;
+	int		x_positon;
+	int		y_positon;
+	}		img_data;
 
 int main(void)
 {
 	void		*mlx;
 	void		*mlx_win;
 	img_data	img;
-	// int			color;
 	int			i;
-	char		*path = "./small.XPM";
+	char		*path = "./sun.xpm";
 	int			img_width;
 	int			img_height;
 	int			j = 0;
@@ -39,9 +31,8 @@ int main(void)
 	while (j < 20)
 	{
 		mlx_put_image_to_window(mlx, mlx_win, img.img, i, 0);
-		i += 50;
+		i += 30;
 		j++;
 	}
-	
 	mlx_loop(mlx);
 }
