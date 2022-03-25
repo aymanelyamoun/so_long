@@ -6,13 +6,13 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:13:55 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/22 16:10:30 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/25 18:35:15 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int haschar(char *str, char c)
+int haschar(char *str, char c)
 {
 	int	has_c;
 

@@ -6,7 +6,7 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:59:52 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/24 20:32:46 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/25 18:34:05 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,14 @@ typedef struct s_data
 	int		win_x;
 	int		win_y;
 	t_images_data	images;
-
+	t_list	*map;
+	int 	moves;
+	int		collectable;
 }	t_data;
 /* ********* ********* ********** */
 /* ********* CHECK MAP ********** */
 /* ********* ********* ********** */
-
+int haschar(char *str, char c);
 /* _________ CHECK CHARS _________*/
 
 int check_P(t_list *list);
