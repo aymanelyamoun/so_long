@@ -6,13 +6,13 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:13:55 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/25 18:35:15 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/26 17:03:38 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int haschar(char *str, char c)
+int	haschar(char *str, char c)
 {
 	int	has_c;
 
@@ -26,7 +26,7 @@ int haschar(char *str, char c)
 	return (has_c);
 }
 
-int check_P(t_list *list)
+int	check_p(t_list *list)
 {
 	int	player;
 	int	has_c;
@@ -49,10 +49,10 @@ int check_P(t_list *list)
 		}
 		list = list->next;
 	}
-	return (1);	
+	return (1);
 }
 
-int check_C(t_list *list)
+int	check_c(t_list *list)
 {
 	int	has_c;
 
@@ -67,7 +67,7 @@ int check_C(t_list *list)
 	return (0);
 }
 
-int check_E(t_list *list)
+int	check_e(t_list *list)
 {
 	int	has_c;
 
@@ -81,4 +81,3 @@ int check_E(t_list *list)
 	write(2, "Error\nThere is no exit\n", 23);
 	return (0);
 }
-

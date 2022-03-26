@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putnbr.c                                           :+:      :+:    :+:   */
+/*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/26 18:54:36 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/26 18:57:47 by ael-yamo         ###   ########.fr       */
+/*   Created: 2022/03/26 18:23:53 by ael-yamo          #+#    #+#             */
+/*   Updated: 2022/03/26 18:24:36 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	ft_putchar(char c)
+int	moves(int key, t_data *data)
 {
-	write(1, &c, 1);
-}
-
-void	ft_putnbr(int new_nb)
-{
-	const int	len = 10;
-	char const	*base = "0123456789";
-	int			nb;
-
-	nb = new_nb;
-	if (new_nb < 0)
-	{
-		ft_putchar('-');
-		new_nb *= -1;
-	}
-	if (new_nb < len)
-		ft_putchar(base[new_nb]);
-	else
-	{
-		ft_putnbr(new_nb / len);
-		ft_putnbr(new_nb % len);
-	}
+	if (key == 13)
+		move_up(data);
+	if (key == 0)
+		move_left(data);
+	if (key == 1)
+		move_down(data);
+	if (key == 2)
+		move_right(data);
+	if (key == 53)
+		end_game(data);
+	if (key == 13 || key == 0 || key == 1 || key == 2)
+		draw(data->map, data);
+	return (0);
 }

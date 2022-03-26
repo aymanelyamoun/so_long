@@ -6,7 +6,7 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:59:47 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/22 18:19:27 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/26 18:54:10 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	*strdup_no_n(char **str)
 {
-	int 	i;
+	int		i;
 	char	*new_str;
 
 	i = 0;
@@ -22,7 +22,7 @@ static char	*strdup_no_n(char **str)
 		return (NULL);
 	while ((*str)[i] != '\0' && (*str)[i] != '\n')
 		i++;
-	new_str = malloc(sizeof(char)*i + 1);
+	new_str = malloc(sizeof(char) * i + 1);
 	i = 0;
 	while ((*str)[i] != '\0' && (*str)[i] != '\n')
 	{
@@ -41,11 +41,11 @@ t_list	*parsing(t_list **last, int fd)
 	t_list	*parsed;
 
 	parsed = NULL;
-	while (69/*fkhater smail*/)
+	while (69)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
-			break;
+			break ;
 		str = strdup_no_n(&line);
 		*last = add_at_end(last, &str);
 		if (parsed == NULL)

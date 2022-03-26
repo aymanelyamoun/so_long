@@ -1,49 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   check_outsider_enemy.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 11:30:55 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/26 19:10:45 by ael-yamo         ###   ########.fr       */
+/*   Created: 2022/03/26 15:57:30 by ael-yamo          #+#    #+#             */
+/*   Updated: 2022/03/26 17:10:46 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	exit_game(t_list **list)
+int	check_outsiders(t_list *list)
 {
-	free_list(list);
-	*list = NULL;
-	exit(1);
-}
-
-void	end_game(t_data *data)
-{
-	free_list(&(data->map));
-	mlx_clear_window(data->mlx, data->win);
-	destroy(data);
-	mlx_destroy_window(data->mlx, data->win);
-	exit(0);
-}
-
-void	game_over(t_data *data)
-{
-	write(1, "FIN AWA RADI\n", 13);
-	end_game(data);
-}
-
-int	check_left_C(t_list *list)
-{
-	int has_c;
+	char	*str;
 
 	while (list != NULL)
 	{
-		has_c = haschar(list->str, 'C');
-		if (has_c)
-			return (1);
+		str = list->str;
+		while (*str == '1' || *str == '0' || *str == 'E' || \
+		*str == 'P' || *str == 'C' || *str == 'O')
+		{
+			str++;
+		}
+		if (*str != '\0')
+		{
+			write(2, "Error\nThere is an outsider\n", 27);
+			return (0);
+		}
 		list = list->next;
 	}
-	return (0);
+	return (1);
 }

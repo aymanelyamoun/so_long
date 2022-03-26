@@ -6,18 +6,14 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:59:52 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/26 15:04:20 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/26 19:07:56 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
-#include "list.h"
-#include "get_next_line_SL/get_next_line.h"
-#include <mlx.h>
-#include <string.h>
-#include <stdio.h>
-
-
+# include "list.h"
+# include "get_next_line_SL/get_next_line.h"
+# include <mlx.h>
 
 typedef struct s_img
 {
@@ -36,39 +32,40 @@ typedef struct s_images
 	t_img_data	collectable;
 	t_img_data	exit;
 	t_img_data	space;
+	t_img_data	enemy;
 	int			x;
 	int			y;
 }			t_images_data;
 
 typedef struct s_data
 {
-	void	*mlx;
-	void	*win;
-	int		win_x;
-	int		win_y;
+	void			*mlx;
+	void			*win;
+	int				win_x;
+	int				win_y;
 	t_images_data	images;
-	t_list	*map;
-	int 	moves;
-	int		collectable;
+	t_list			*map;
+	int				moves;
+	int				collectable;
 }	t_data;
 
-void     ft_putnbr(int new_nb);
+void	ft_putnbr(int new_nb);
 /* ********* ********* ********** */
 /* ********* CHECK MAP ********** */
 /* ********* ********* ********** */
-int haschar(char *str, char c);
+int		haschar(char *str, char c);
 /* _________ CHECK CHARS _________*/
 
-int check_P(t_list *list);
-int check_C(t_list *list);
-int check_E(t_list *list);
-int	check_outsiders(t_list *list);
-int	check_if_rctnglr(t_list *list);
+int		check_p(t_list *list);
+int		check_c(t_list *list);
+int		check_e(t_list *list);
+int		check_outsiders(t_list *list);
+int		check_if_rctnglr(t_list *list);
 
 /* _________ CHECK WLLES _________*/
 
-int check_hrsntl(char *first, char *last);
-int	check_vrtcl(t_list *list);
+int		check_hrsntl(char *first, char *last);
+int		check_vrtcl(t_list *list);
 t_list	*check(int fd);
 
 /* ********* ************* ********** */
@@ -79,7 +76,8 @@ size_t	str_len(const char *s);
 t_list	*parsing(t_list **last, int fd);
 void	exit_game(t_list **list);
 void	end_game(t_data *data);
-int check_left_C(t_list *list);
+int		check_left_C(t_list *list);
+void	game_over(t_data *data);
 
 /* ********* ************* ********** */
 /* ********* *** MOVES *** ********** */
@@ -89,6 +87,7 @@ void	move_up(t_data *data);
 void	move_down(t_data *data);
 void	move_right(t_data *data);
 void	move_left(t_data *data);
+int		moves(int key, t_data *data);
 /**/
 
 /* ********* ************* ********** */

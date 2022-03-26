@@ -6,33 +6,11 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:16:02 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/22 13:29:54 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/26 15:54:39 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	check_outsiders(t_list *list)
-{
-	char	*str;
-	
-	while (list != NULL)
-	{
-		str = list->str;
-		while (*str == '1' || *str == '0' || *str == 'E' ||\
-		*str == 'P' || *str == 'C')
-		{
-			str++;
-		}
-		if (*str != '\0')
-		{
-			write(2, "Error\nThere is an outsider\n", 27);
-			return (0);
-		}
-		list = list->next;
-	}
-	return (1);
-}
 
 int	check_if_rctnglr(t_list *list)
 {

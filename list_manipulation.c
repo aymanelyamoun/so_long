@@ -6,15 +6,15 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 13:13:20 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/26 14:55:50 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/26 17:18:24 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static t_list *creat_node(char **str)
+static t_list	*creat_node(char **str)
 {
-	t_list *node;
+	t_list	*node;
 
 	node = malloc(sizeof(t_list));
 	if (node == NULL)
@@ -27,7 +27,7 @@ static t_list *creat_node(char **str)
 
 void	free_list(t_list **list)
 {
-	t_list *to_free;
+	t_list	*to_free;
 
 	while ((*list) != NULL)
 	{
@@ -39,7 +39,7 @@ void	free_list(t_list **list)
 	*list = NULL;
 }
 
-t_list *add_at_end(t_list **list, char **str)
+t_list	*add_at_end(t_list **list, char **str)
 {
 	t_list	*node;
 
