@@ -6,7 +6,7 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:45:50 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/26 18:49:22 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/26 19:28:50 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	move_up(t_data *data)
 		(tmp->prev->str[i] != '1') && (tmp->prev->str[i] != 'E'))
 			move_up_asset(&tmp, i, data);
 		if (tmp->prev->str[i] == 'E' && check_left_C(data->map) == 0)
-			(move_up_asset(&tmp, i, data), end_game(data));
+			(move_up_asset(&tmp, i, data), end_game(data, 1));
 		tmp = tmp->next;
 	}
 }
@@ -77,7 +77,7 @@ void	move_down(t_data *data)
 		}
 		else if (tmp->next != NULL && \
 		tmp->next->str[i] == 'E' && check_left_C(data->map) == 0)
-			(move_down_asset(&tmp, i, data), end_game(data));
+			(move_down_asset(&tmp, i, data), end_game(data, 1));
 		tmp = tmp->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:59:52 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/26 19:07:56 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/26 22:21:20 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ typedef struct s_img
 	int		x_positon;
 	int		y_positon;
 }		t_img_data;
+
+typedef struct s_player
+{
+	t_img_data	p;
+	t_img_data	p1;
+	t_img_data	p2;
+} t_player;
 
 typedef struct s_images
 {
@@ -47,6 +54,7 @@ typedef struct s_data
 	t_list			*map;
 	int				moves;
 	int				collectable;
+	t_player		p;
 }	t_data;
 
 void	ft_putnbr(int new_nb);
@@ -75,7 +83,7 @@ t_list	*check(int fd);
 size_t	str_len(const char *s);
 t_list	*parsing(t_list **last, int fd);
 void	exit_game(t_list **list);
-void	end_game(t_data *data);
+void	end_game(t_data *data, int win);
 int		check_left_C(t_list *list);
 void	game_over(t_data *data);
 
