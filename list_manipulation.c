@@ -6,7 +6,7 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 13:13:20 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/22 17:54:15 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/26 14:55:50 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,17 @@ t_list *add_at_end(t_list **list, char **str)
 		exit(1);
 	}
 	return (node);
+}
+
+int	list_len(t_list *list)
+{
+	int	i;
+
+	i = 0;
+	while (list != NULL)
+	{
+		list = list->next;
+		i++;
+	}
+	return (i);
 }

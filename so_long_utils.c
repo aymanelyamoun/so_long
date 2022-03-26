@@ -6,7 +6,7 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:30:55 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/22 16:19:33 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/26 14:53:53 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,27 @@ void	exit_game(t_list **list)
 	free_list(list);
 	*list = NULL;
 	exit(1);
+}
+
+void	end_game(t_data *data)
+{
+	free_list(&(data->map));
+	mlx_clear_window(data->mlx, data->win);
+	destroy(data);
+	mlx_destroy_window(data->mlx, data->win);
+	exit(0);
+}
+
+int check_left_C(t_list *list)
+{
+	int	has_c;
+
+	while (list != NULL)
+	{
+		has_c = haschar(list->str, 'C');
+		if (has_c)
+			return (1);
+		list = list->next;
+	}
+	return (0);
 }

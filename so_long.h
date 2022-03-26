@@ -6,7 +6,7 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:59:52 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/25 18:34:05 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/26 15:04:20 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ typedef struct s_data
 	int 	moves;
 	int		collectable;
 }	t_data;
+
+void     ft_putnbr(int new_nb);
 /* ********* ********* ********** */
 /* ********* CHECK MAP ********** */
 /* ********* ********* ********** */
@@ -76,11 +78,31 @@ t_list	*check(int fd);
 size_t	str_len(const char *s);
 t_list	*parsing(t_list **last, int fd);
 void	exit_game(t_list **list);
+void	end_game(t_data *data);
+int check_left_C(t_list *list);
 
+/* ********* ************* ********** */
+/* ********* *** MOVES *** ********** */
+/* ********* ************* ********** */
+
+void	move_up(t_data *data);
+void	move_down(t_data *data);
+void	move_right(t_data *data);
+void	move_left(t_data *data);
 /**/
 
-// void	put_img(char c, t_data *data, t_images_data img);
-void	creat_imgs(t_images_data *images, t_data *data);
-// t_data	set_data(t_list *map);
-// void	draw(t_list *map, t_images_data images, t_data *data);
+/* ********* ************* ********** */
+/* ********* *** DATA  *** ********** */
+/* ********* ************* ********** */
+
+void	init_imgs(t_data *data);
+void	set_data(t_data *data, t_list *map);
+void	destroy(t_data *data);
+
+/* ********* ************* ********** */
+/* ********* ** DRAWING ** ********** */
+/* ********* ************* ********** */
+
+void	draw(t_list *map, t_data *data);
+
 #endif
