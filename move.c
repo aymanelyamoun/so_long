@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.h                                             :+:      :+:    :+:   */
+/*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 13:09:58 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/26 17:20:34 by ael-yamo         ###   ########.fr       */
+/*   Created: 2022/03/26 18:23:53 by ael-yamo          #+#    #+#             */
+/*   Updated: 2022/03/26 18:24:36 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_H
-# include <unistd.h>
+#include "so_long.h"
 
-struct	s_list
+int	moves(int key, t_data *data)
 {
-	struct s_list	*next;
-	struct s_list	*prev;
-	char			*str;
-};
-
-typedef struct s_list	t_list;
-
-t_list	*add_at_end(t_list **list, char **str);
-void	free_list(t_list **list);
-int		list_len(t_list *list);
-
-#endif
+	if (key == 13)
+		move_up(data);
+	if (key == 0)
+		move_left(data);
+	if (key == 1)
+		move_down(data);
+	if (key == 2)
+		move_right(data);
+	if (key == 53)
+		end_game(data);
+	if (key == 13 || key == 0 || key == 1 || key == 2)
+		draw(data->map, data);
+	return (0);
+}

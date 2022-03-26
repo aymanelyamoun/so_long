@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.h                                             :+:      :+:    :+:   */
+/*   putnbr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 13:09:58 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/26 17:20:34 by ael-yamo         ###   ########.fr       */
+/*   Created: 2022/03/26 18:54:36 by ael-yamo          #+#    #+#             */
+/*   Updated: 2022/03/26 18:57:47 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_H
-# include <unistd.h>
+#include "so_long.h"
 
-struct	s_list
+static void	ft_putchar(char c)
 {
-	struct s_list	*next;
-	struct s_list	*prev;
-	char			*str;
-};
+	write(1, &c, 1);
+}
 
-typedef struct s_list	t_list;
+void	ft_putnbr(int new_nb)
+{
+	const int	len = 10;
+	char const	*base = "0123456789";
+	int			nb;
 
-t_list	*add_at_end(t_list **list, char **str);
-void	free_list(t_list **list);
-int		list_len(t_list *list);
-
-#endif
+	nb = new_nb;
+	if (new_nb < 0)
+	{
+		ft_putchar('-');
+		new_nb *= -1;
+	}
+	if (new_nb < len)
+		ft_putchar(base[new_nb]);
+	else
+	{
+		ft_putnbr(new_nb / len);
+		ft_putnbr(new_nb % len);
+	}
+}

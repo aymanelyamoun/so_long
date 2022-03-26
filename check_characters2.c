@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.h                                             :+:      :+:    :+:   */
+/*   check_characters2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 13:09:58 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/26 17:20:34 by ael-yamo         ###   ########.fr       */
+/*   Created: 2022/03/22 11:16:02 by ael-yamo          #+#    #+#             */
+/*   Updated: 2022/03/26 15:54:39 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_H
-# include <unistd.h>
+#include "so_long.h"
 
-struct	s_list
+int	check_if_rctnglr(t_list *list)
 {
-	struct s_list	*next;
-	struct s_list	*prev;
-	char			*str;
-};
+	t_list	*next;
 
-typedef struct s_list	t_list;
-
-t_list	*add_at_end(t_list **list, char **str);
-void	free_list(t_list **list);
-int		list_len(t_list *list);
-
-#endif
+	while (list->next != NULL)
+	{
+		next = list->next;
+		if (ft_strlen(list->str) != ft_strlen(next->str))
+		{
+			write(2, "Error\nThe map isn't rectangular\n", 32);
+			return (0);
+		}
+		list = list->next;
+	}
+	return (1);
+}
