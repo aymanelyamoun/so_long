@@ -6,7 +6,7 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:59:52 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/26 22:21:20 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/28 15:40:33 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_player
 	t_img_data	p;
 	t_img_data	p1;
 	t_img_data	p2;
-} t_player;
+}	t_player;
 
 typedef struct s_images
 {
@@ -42,7 +42,7 @@ typedef struct s_images
 	t_img_data	enemy;
 	int			x;
 	int			y;
-}			t_images_data;
+}	t_images_data;
 
 typedef struct s_data
 {
@@ -84,7 +84,7 @@ size_t	str_len(const char *s);
 t_list	*parsing(t_list **last, int fd);
 void	exit_game(t_list **list);
 void	end_game(t_data *data, int win);
-int		check_left_C(t_list *list);
+int		check_left_c(t_list *list);
 void	game_over(t_data *data);
 
 /* ********* ************* ********** */
@@ -105,6 +105,8 @@ int		moves(int key, t_data *data);
 void	init_imgs(t_data *data);
 void	set_data(t_data *data, t_list *map);
 void	destroy(t_data *data);
+void	destroy_p(t_data *data);
+void	init_imgs_p(t_data *data);
 
 /* ********* ************* ********** */
 /* ********* ** DRAWING ** ********** */

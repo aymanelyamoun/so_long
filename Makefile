@@ -6,7 +6,7 @@
 #    By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/23 19:46:50 by ael-yamo          #+#    #+#              #
-#    Updated: 2022/03/26 19:21:43 by ael-yamo         ###   ########.fr        #
+#    Updated: 2022/03/28 15:42:34 by ael-yamo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ main.o parsing.o so_long_utils.o drawing.o data.o move.o moves.o moves2.o putnbr
 get_next_line_SL/get_next_line.o get_next_line_SL/get_next_line_utils.o check_outsiders.o
 
 OBJ_BONUS = check_characters.o check_characters2.o check_walles.o check.o list_manipulation.o \
-main_bonus.o parsing.o so_long_utils.o drawing.o data_bonus.o move.o moves.o moves2.o putnbr.o\
-get_next_line_SL/get_next_line.o get_next_line_SL/get_next_line_utils.o check_outsider_enemy.o
+main_bonus.o parsing.o so_long_utils_bonus.o drawing.o data_bonus.o move.o moves.o moves2.o putnbr.o\
+get_next_line_SL/get_next_line.o get_next_line_SL/get_next_line_utils.o check_outsider_enemy.o destroy_p.o
 
 all: $(NAME)
 
