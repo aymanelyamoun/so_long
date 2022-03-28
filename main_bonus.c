@@ -6,7 +6,7 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:47:31 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/26 22:37:21 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/28 15:33:18 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,17 @@ static int	is_ber_at_end(char *str)
 
 int	animat(t_data *data)
 {
-	int random;
-	t_img_data tmp;
+	int	random;
 
 	random = (rand() % (2 - 0 + 1)) + 0;
-
-	tmp.img = data->images.player.img;
-	// if (random <= 2)
-	// 	mlx_destroy_image(data->mlx, tmp.img);
-	// 	usleep(550000);
 	if (random == 0)
 	{
 		data->images.player.img = data->p.p.img;
 		draw(data->map, data);
 		usleep(15000);
 	}
-	else if (random == 1){
+	else if (random == 1)
+	{
 		data->images.player.img = data->p.p1.img;
 		draw(data->map, data);
 		usleep(15000);
@@ -80,7 +75,6 @@ int	main(int argc, char **argv)
 {
 	int		fd;
 	t_data	data;
-	int arr[2];
 
 	if (argc == 2)
 	{
@@ -89,13 +83,11 @@ int	main(int argc, char **argv)
 		fd = open(argv[argc - argc + 1], O_RDONLY);
 		data.map = check(fd);
 		set_data(&data, data.map);
-		data.p.p1.img = mlx_xpm_file_to_image(data.mlx, "./imgs/player1.xpm", &arr[0], &arr[1]);
-		data.p.p2.img = mlx_xpm_file_to_image(data.mlx, "./imgs/player2.xpm", &arr[0], &arr[1]);
-		data.p.p.img  = mlx_xpm_file_to_image(data.mlx, "./imgs/player.xpm", &arr[0], &arr[1]);
 		init_imgs(&data);
+		init_imgs_p(&data);
 		draw(data.map, &data);
 		mlx_hook(data.win, 2, (1L << 2), moves, &data);
-		mlx_loop_hook(data.mlx, animat, (void*)(&data));
+		mlx_loop_hook(data.mlx, animat, (void *)(&data));
 		mlx_loop(data.mlx);
 		return (0);
 	}

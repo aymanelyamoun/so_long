@@ -6,7 +6,7 @@
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:49:42 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/26 19:29:11 by ael-yamo         ###   ########.fr       */
+/*   Updated: 2022/03/28 15:40:20 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	move_right(t_data *data)
 		if ((tmp->str[i] == 'P') && \
 		(tmp->str[i + 1] != '1') && (tmp->str[i + 1] != 'E'))
 			move_right_asset(&tmp, i, data);
-		if (tmp->str[i + 1] == 'E' && check_left_C(tmp) == 0)
+		if (tmp->str[i + 1] == 'E' && check_left_c(data->map) == 0)
 		{
 			move_right_asset(&tmp, i, data);
 			end_game(data, 1);
@@ -75,7 +75,7 @@ void	move_left(t_data *data)
 		if ((tmp->str[i] == 'P') && \
 		(tmp->str[i - 1] != '1') && (tmp->str[i - 1] != 'E'))
 			move_left_asset(&tmp, i, data);
-		if (tmp->str[i - 1] == 'E' && check_left_C(tmp) == 0)
+		if (tmp->str[i - 1] == 'E' && check_left_c(data->map) == 0)
 			(move_left_asset(&tmp, i, data), end_game(data, 1));
 		tmp = tmp->next;
 	}

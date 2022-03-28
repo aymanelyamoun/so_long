@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   so_long_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-yamo <ael-yamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 11:30:55 by ael-yamo          #+#    #+#             */
-/*   Updated: 2022/03/28 15:52:03 by ael-yamo         ###   ########.fr       */
+/*   Created: 2022/03/28 13:05:58 by ael-yamo          #+#    #+#             */
+/*   Updated: 2022/03/28 15:53:04 by ael-yamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	end_game(t_data *data, int stat)
 	free_list(&(data->map));
 	mlx_clear_window(data->mlx, data->win);
 	destroy(data);
+	destroy_p(data);
 	mlx_destroy_window(data->mlx, data->win);
 	if (stat == 1)
 		write(1, "YOU WON\n", 8);
